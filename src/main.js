@@ -17,16 +17,21 @@ import '../lib/mui/css/mui.min.css'
 import '../lib/mui/css/icons-extra.css'
 
 // 按需导入 Mint-UI 中的组件
-import { Header, Swipe, SwipeItem, Button } from 'mint-ui'
-Vue.component(Header.name, Header)
-Vue.component(Swipe.name, Swipe)
-Vue.component(SwipeItem.name, SwipeItem)
-Vue.component(Button.name, Button)
+// import { Header, Swipe, SwipeItem, Button, Lazyload } from 'mint-ui'
+// Vue.component(Header.name, Header)
+// Vue.component(Swipe.name, Swipe)
+// Vue.component(SwipeItem.name, SwipeItem)
+// Vue.component(Button.name, Button)
+// Vue.use(Lazyload)
 
 // 全局导入 Mint-UI
-// import MintUI from 'mint-ui'
-// import 'mint-ui/lib/style.css'
-// Vue.use(MintUI)
+import MintUI from 'mint-ui'
+import 'mint-ui/lib/style.css'
+Vue.use(MintUI)
+
+// 安装 图片预览插件
+import VuePreview from 'vue-preview'
+Vue.use(VuePreview)
 
 // 1.3 导入自己的 router.js 路由对象
 import router from './router.js'
@@ -37,6 +42,8 @@ import App from './App.vue'
 import axios from 'axios'
 // 配置请求的根路径
 axios.defaults.baseURL = 'http://api.cms.liulongbin.top'
+// axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+
 
 Vue.prototype.$http = axios
 

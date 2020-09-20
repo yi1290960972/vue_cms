@@ -36,7 +36,7 @@ export default {
   methods: {
     getNewsList () {
       this.$http.get('/api/getnewslist').then(result => {
-        //console.log(result)
+        // console.log(result)
         if (result.data.status === 0) {
           this.newsList = result.data.message
         } else {

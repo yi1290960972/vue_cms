@@ -1,13 +1,7 @@
 <template>
   <div>
     <!-- 轮播图区域 -->
-    <mt-swipe :auto="4000">
-      <mt-swipe-item v-for="item in lunbotulist"
-                     :key="item.id">
-        <img :src="item.img"
-             alt="">
-      </mt-swipe-item>
-    </mt-swipe>
+    <swiper :lunbotulist="lunbotulist"></swiper>
 
     <!-- 将 九宫格 改造为 六宫格 -->
     <ul class="mui-table-view mui-grid-view mui-grid-9">
@@ -18,16 +12,20 @@
           <div class="mui-media-body">新闻资讯</div>
         </router-link>
       </li>
-      <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+      <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+        <router-link to="/home/photolist">
           <img :src="menu2"
                alt="">
           <div class="mui-media-body">图片分享</div>
-        </a></li>
-      <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+        </router-link>
+      </li>
+      <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+        <router-link to="/home/goodslist">
           <img :src="menu3"
                alt="">
           <div class="mui-media-body">商品购买</div>
-        </a></li>
+        </router-link>
+      </li>
       <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
           <img :src="menu4"
                alt="">
@@ -49,6 +47,7 @@
 </template>
 
 <script>
+import swiper from '../subcomponents/swiper.vue'
 import { Toast } from 'mint-ui'
 import menu1 from "../../images/menu1.png"
 import menu2 from "../../images/menu2.png"
@@ -87,6 +86,9 @@ export default {
         }
       }).catch(err => { })
     }
+  },
+  components: {
+    'swiper': swiper
   }
 }
 </script>
